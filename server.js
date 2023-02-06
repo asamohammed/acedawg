@@ -14,7 +14,7 @@ app.get("/", async (req, res) => {
     const client = await pool.connect();
 	result = await client.query(`SELECT * FROM scoreboard;`);
 	result = result.rows;
-
+    
     const dbAsaScore = parseInt(result[0]['score']);
     const dbMarkScore = parseInt(result[1]['score']);
     console.log('pooped myself')
