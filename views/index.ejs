@@ -8,12 +8,33 @@
     <title>Rock Paper Scissors</title>
 </head>
 
-<body>
+<body style="background-image: url(https://img.freepik.com/free-vector/abstract-white-triangle-shapes-background_1035-17544.jpg?t=st=1675429800~exp=1675430400~hmac=2b913879a1eee843c6dc07c81b1a71f461234fc4cc3f49b49e75d1afdba6fb7e);">
+    <h1 style="text-align: center; color: green;">Rock Paper Scissors Leaderboard</h1>
+    <h4 style="text-align: center;">Mark is bad at rock paper scissors</h4>
+    <p style="text-align: center;">Asa: <%- asascore %></p>
+    <p style="text-align: center;">Mark: <%- markscore %></p> 
 
-    Hello <%- math %>
+   
 </body>
 
 </html>
+
+<script>
+    async function getDB() {
+		let suggestTable = await fetch('/suggestTable', {
+			method: 'GET',
+		});
+		suggestTable = await suggestTable.json();
+
+		let wordsTable = await fetch('/wordsTable', {
+			method: 'GET',
+		});
+		wordsTable = await wordsTable.json();
+
+		populateTable(suggestTable);
+		populateWordsTable(wordsTable);
+	}
+</script>
 
 
 <!-- style="background-image: url(https://img.freepik.com/free-vector/abstract-white-triangle-shapes-background_1035-17544.jpg?t=st=1675429800~exp=1675430400~hmac=2b913879a1eee843c6dc07c81b1a71f461234fc4cc3f49b49e75d1afdba6fb7e);">
